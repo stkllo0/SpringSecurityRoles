@@ -14,6 +14,9 @@ public class Role implements GrantedAuthority {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
+    
+    @ManyToMany(mappedBy = "roles")
+    private Collection<User> users;
 
     public Role() {
     }
@@ -37,11 +40,18 @@ public class Role implements GrantedAuthority {
         this.name = name;
     }
 
+    public Collection<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(Collection<User> users) {
+        this.users = users;
+    }
+    
     @Override
     public String getAuthority() {
         return getName();
     }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
