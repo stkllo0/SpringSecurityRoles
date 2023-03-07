@@ -24,7 +24,7 @@ public class User implements UserDetails {
     private String password;
     @Column(name = "salary", nullable = false)
     private int salary;
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "users_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Collection<Role> roles;
 
