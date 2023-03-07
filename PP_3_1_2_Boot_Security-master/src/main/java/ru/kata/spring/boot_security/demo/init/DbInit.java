@@ -4,7 +4,6 @@ package ru.kata.spring.boot_security.demo.init;
 import org.springframework.stereotype.Component;
 import ru.kata.spring.boot_security.demo.entity.Role;
 import ru.kata.spring.boot_security.demo.entity.User;
-import ru.kata.spring.boot_security.demo.repository.UserRepository;
 import ru.kata.spring.boot_security.demo.service.RoleServiceImpl;
 import ru.kata.spring.boot_security.demo.service.UserServiceImpl;
 
@@ -15,14 +14,12 @@ import java.util.Set;
 public class DbInit {
     private final UserServiceImpl userService;
     private final RoleServiceImpl roleService;
-    private final UserRepository userRepository;
 
-    public DbInit(UserServiceImpl userService, RoleServiceImpl roleService,
-                  UserRepository userRepository) {
+    public DbInit(UserServiceImpl userService, RoleServiceImpl roleService) {
         this.userService = userService;
         this.roleService = roleService;
 
-        this.userRepository = userRepository;
+
     }
 
     @PostConstruct
