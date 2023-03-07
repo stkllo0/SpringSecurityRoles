@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>userHomePage</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>LastName</th>
+        <th>Salary</th>
+    </tr>
+
+    <div th:each="userInfo : ${user}">
+        <tr>
+            <td th:utext="${userInfo.getId}"></td>
+            <td th:text="${userInfo.getUsername()}"></td>
+            <td th:text="${userInfo.getLastName()}"></td>
+            <td th:text="${userInfo.getSalary()}"></td>
+            <td th:text="${userInfo.getRoles()}"></td>
+        </tr>
+
+    </div>
+</table>
+</br>
+<form th:method="POST" th:action="@{/logout}">
+    <input type="submit" value="Logout"/>
+</form>
+</body>
+</html>
