@@ -25,9 +25,9 @@ public class User implements UserDetails {
     @Column(name = "salary", nullable = false)
     private int salary;
     @ManyToMany(fetch = FetchType.LAZY)
+    @Fetch(FetchMode.JOIN)
     @JoinTable(name = "users_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Collection<Role> roles;
-
     public User() {
     }
 
